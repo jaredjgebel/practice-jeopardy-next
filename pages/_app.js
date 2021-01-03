@@ -1,11 +1,12 @@
-import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Background from "../components/Background";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider resetCSS>
-      <ColorModeProvider options={{ initialColorMode: "dark" }}>
+      <Background>
         <Component {...pageProps} />
-      </ColorModeProvider>
+      </Background>
     </ChakraProvider>
   );
 }
