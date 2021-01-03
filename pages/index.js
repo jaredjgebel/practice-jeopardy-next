@@ -1,6 +1,20 @@
-import Head from "next/head";
 import FrontPage from "../components/FrontPage";
+import { parseClueIds } from "../data/getClues";
 
-export default function Home() {
-  return <FrontPage />;
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+export async function getStaticProps() {
+  const clueIds = parseClueIds();
+  const randomClueId = clueIds[getRandomInt(clueIds.length)];
+
+  return {
+    props: {
+      randomClueId: randomClueId.toString(),
+    },
+  };
+}
+
+export default function Home({ randomClueId }) {
+  return <FrontPage firstClueId={randomClueId} />;
 }

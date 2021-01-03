@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   };
 }
 
-export function getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const clues = parseClues();
   const clueData = clues.find((clue) => clue.id.toString() === params.id);
 
