@@ -1,6 +1,9 @@
 import Head from "next/head";
+import Link from "next/link";
 import { Text } from "@chakra-ui/react";
+
 import { parseClueIds, parseClues } from "../../data/getClues";
+import { setCluePaths } from "../../data/setCluePaths";
 
 export async function getStaticPaths() {
   const clueIds = parseClueIds();
@@ -23,22 +26,35 @@ export function getStaticProps({ params }) {
   const clues = parseClues();
   const clueData = clues.find((clue) => clue.id.toString() === params.id);
 
+  const { prevClueId, nextClueId } = setCluePaths(
+    clues,
+    clueData.id.toString()
+  );
+
   return {
     props: {
       clue: clueData,
+      prevClueId,
+      nextClueId,
     },
   };
 }
 
-export default function Clue({ clue }) {
+export default function Clue({ clue, prevClueId, nextClueId }) {
   return (
     <>
       <Head>
-        <title>{clue.category}</title>
+        <title>Practice Jeopardy! - {clue.category}</title>
       </Head>
+
       <section>
         <Text>{clue.question}</Text>
       </section>
+
+      <nav>
+        <Link href={`/clues/${prevClueId}`}>Previous clue</Link>
+        <Link href={`/clues/${nextClueId}`}>Next clue</Link>
+      </nav>
     </>
   );
 }
