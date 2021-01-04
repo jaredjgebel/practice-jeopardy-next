@@ -1,7 +1,7 @@
 import React from "react";
-import { Flex, Heading, Link, Text } from "@chakra-ui/react";
+import { Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
 
-function FrontPage({ firstClueId }) {
+function FrontPage({ children }) {
   return (
     <Flex
       height="100%"
@@ -15,7 +15,7 @@ function FrontPage({ firstClueId }) {
         Flash card-style questions and answers from{" "}
         <Text as="i">Jeopardy!</Text> questions throughout the ages
       </p>
-      <Link href={`/clues/${firstClueId}`}>Start</Link>
+      {children}
     </Flex>
   );
 }

@@ -1,3 +1,7 @@
+import Head from "next/head";
+import Link from "next/link";
+import { Button } from "@chakra-ui/react";
+
 import FrontPage from "../components/FrontPage";
 import { parseClueIds } from "../data/getClues";
 
@@ -10,11 +14,20 @@ export async function getStaticProps() {
 
   return {
     props: {
-      randomClueId: randomClueId.toString(),
+      firstClueId: randomClueId.toString(),
     },
   };
 }
 
-export default function Home({ randomClueId }) {
-  return <FrontPage firstClueId={randomClueId} />;
+export default function Home({ firstClueId }) {
+  return (
+    <>
+      <Head>
+        <title>Practice Jeopardy!</title>
+      </Head>
+      <FrontPage>
+        <Link href={`/clues/${firstClueId}`}>Start</Link>
+      </FrontPage>
+    </>
+  );
 }
