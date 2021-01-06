@@ -26,7 +26,9 @@ export default function Home({ firstClueId }) {
         <title>Practice Jeopardy!</title>
       </Head>
       <FrontPage>
-        <Link href={`/clues/${firstClueId}`}>Start</Link>
+        <Link href={`/clues/${firstClueId}`} passHref>
+          <Button color="#050b9d">Start</Button>
+        </Link>
       </FrontPage>
     </>
   );
