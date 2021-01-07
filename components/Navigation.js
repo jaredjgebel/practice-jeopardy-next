@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button, chakra } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 function Navigation({ prevClueId, nextClueId }) {
   return (
@@ -11,12 +12,20 @@ function Navigation({ prevClueId, nextClueId }) {
     >
       <chakra.div padding="10px">
         <Link href={`/clues/${prevClueId}`}>
-          <Button color="dukeBlue">Previous clue</Button>
+          <Button width="100px" leftIcon={<ChevronLeftIcon />} color="dukeBlue">
+            Previous
+          </Button>
         </Link>
       </chakra.div>
       <chakra.div padding="10px">
         <Link href={`/clues/${nextClueId}`}>
-          <Button color="dukeBlue">Next clue</Button>
+          <Button
+            width="100px"
+            color="dukeBlue"
+            rightIcon={<ChevronRightIcon />}
+          >
+            Next
+          </Button>
         </Link>
       </chakra.div>
     </chakra.nav>
