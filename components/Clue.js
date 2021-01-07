@@ -15,7 +15,7 @@ function Clue({ clue, navigation }) {
     >
       <Grid gridTemplateColumns="1fr 1fr 1fr" gridGap="10px">
         <nav className="menu-nav" aria-labelledby="menu-navigation">
-          <Button width="75px" color="#050b9d">
+          <Button width="75px" color="dukeBlue">
             Back
           </Button>
         </nav>
@@ -38,12 +38,16 @@ function Clue({ clue, navigation }) {
         </chakra.section>
       </Grid>
 
-      <chakra.section display="grid" gridTemplateRows="1fr 1fr">
+      <chakra.section display="grid" gridTemplateRows="1fr 1fr" height="100%">
         <Flex alignItems="flex-end" justifyContent="center">
           <Text textAlign="center">{answerVisible ? answer : question}</Text>
         </Flex>
         <Flex alignItems="flex-end" justifyContent="center">
-          <Button width="75px" color="#050b9d">
+          <Button
+            width="75px"
+            color="dukeBlue"
+            onClick={() => setAnswerVisible(!answerVisible)}
+          >
             Reveal
           </Button>
         </Flex>

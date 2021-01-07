@@ -27,7 +27,7 @@ export default function Home({ firstClueId }) {
       </Head>
       <FrontPage>
         <Link href={`/clues/${firstClueId}`} passHref>
-          <Button color="#050b9d">Start</Button>
+          <Button color="dukeBlue">Start</Button>
         </Link>
       </FrontPage>
     </>

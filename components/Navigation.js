@@ -11,12 +11,12 @@ function Navigation({ prevClueId, nextClueId }) {
     >
       <chakra.div padding="10px">
         <Link href={`/clues/${prevClueId}`}>
-          <Button color="#050b9d">Previous clue</Button>
+          <Button color="dukeBlue">Previous clue</Button>
         </Link>
       </chakra.div>
       <chakra.div padding="10px">
         <Link href={`/clues/${nextClueId}`}>
-          <Button color="#050b9d">Next clue</Button>
+          <Button color="dukeBlue">Next clue</Button>
         </Link>
       </chakra.div>
     </chakra.nav>
