@@ -11,23 +11,42 @@ function Clue({ clue, navigation }) {
       justifyContent="space-between"
       height="100vh"
       width="100%"
+      padding="10px"
     >
-      <Grid gridTemplateColumns="1fr 1fr 1fr">
-        <Button width="75px" color="#050b9d">
-          Back
-        </Button>
-        <chakra.section>
-          <Text>{value}</Text>
-          <Text>{`Aired ${new Date(Date.parse(airdate))}`.slice(0, -42)}</Text>
+      <Grid gridTemplateColumns="1fr 1fr 1fr" gridGap="10px">
+        <nav className="menu-nav" aria-labelledby="menu-navigation">
+          <Button width="75px" color="#050b9d">
+            Back
+          </Button>
+        </nav>
+
+        <Heading as="h1" textAlign="center">
+          {category}
+        </Heading>
+
+        <chakra.section
+          display="flex"
+          flexDirection="column"
+          alignItems="right"
+          textAlign="right"
+        >
+          <Heading as="h2">{value}</Heading>
+          <Text>
+            {`Aired`}{" "}
+            <time>{`${new Date(Date.parse(airdate))}`.slice(0, -42)}</time>
+          </Text>
         </chakra.section>
-        <Heading as="h1">{category}</Heading>
       </Grid>
 
-      <chakra.section display="flex" flexDirection="column" alignItems="center">
-        <Text>{answerVisible ? answer : question}</Text>
-        <Button width="75px" color="#050b9d">
-          Reveal
-        </Button>
+      <chakra.section display="grid" gridTemplateRows="1fr 1fr">
+        <Flex alignItems="flex-end" justifyContent="center">
+          <Text textAlign="center">{answerVisible ? answer : question}</Text>
+        </Flex>
+        <Flex alignItems="flex-end" justifyContent="center">
+          <Button width="75px" color="#050b9d">
+            Reveal
+          </Button>
+        </Flex>
       </chakra.section>
 
       {navigation}
