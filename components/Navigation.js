@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button, chakra } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-function Navigation({ prevClueId, nextClueId }) {
+function Navigation({ prevClueId, nextClueId, onNavClick }) {
   return (
     <chakra.nav
       aria-labelledby="clue-navigation"

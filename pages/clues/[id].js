@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 import Clue from "../../components/Clue";
-import Navigation from "../../components/Navigation";
 import { parseClueIds, parseClues } from "../../data/getClues";
 import { setCluePaths } from "../../data/setCluePaths";
 
@@ -47,12 +46,7 @@ export default function CluePage({ clue, prevClueId, nextClueId }) {
         <title>Practice Jeopardy! - {clue.category}</title>
       </Head>
 
-      <Clue
-        clue={clue}
-        navigation={
-          <Navigation prevClueId={prevClueId} nextClueId={nextClueId} />
-        }
-      />
+      <Clue clue={clue} prevClueId={prevClueId} nextClueId={nextClueId} />
     </>
   );
 }
