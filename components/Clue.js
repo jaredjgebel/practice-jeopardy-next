@@ -1,117 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import {
-  Button,
-  chakra,
-  Flex,
-  Grid,
-  Heading,
-  Text,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import { ArrowBackIcon, RepeatIcon } from "@chakra-ui/icons";
+import { Button, chakra, Flex, Text } from "@chakra-ui/react";
+import { RepeatIcon } from "@chakra-ui/icons";
 
 import Navigation from "../components/Navigation";
-
-function SmallMediaHeader({ category, airdate, value }) {
-  return (
-    <chakra.div>
-      <Flex justifyContent="space-between">
-        <nav className="menu-nav" aria-labelledby="menu-navigation">
-          <Link href="/">
-            <Button width="75px" color="dukeBlue" leftIcon={<ArrowBackIcon />}>
-              Back
-            </Button>
-          </Link>
-        </nav>
-
-        <chakra.section
-          display="flex"
-          flexDirection="column"
-          alignItems="right"
-          textAlign="right"
-        >
-          <Heading as="h2" size="md" fontWeight="normal">
-            ${value}
-          </Heading>
-
-          <Text size="md">
-            {`Aired`}{" "}
-            <time>{`${new Date(Date.parse(airdate))}`.slice(0, -42)}</time>
-          </Text>
-        </chakra.section>
-      </Flex>
-
-      <Flex justifyContent="center">
-        <Heading
-          as="h1"
-          textAlign="center"
-          textTransform="uppercase"
-          size="xl"
-          fontWeight="normal"
-          padding={4}
-          paddingBottom={16}
-        >
-          {category}
-        </Heading>
-      </Flex>
-    </chakra.div>
-  );
-}
-
-function MediumMediaHeader({ category, airdate, value }) {
-  return (
-    <Grid gridTemplateColumns="1fr 1fr 1fr" gridGap="30px" height="50px">
-      <nav className="menu-nav" aria-labelledby="menu-navigation">
-        <Link href="/">
-          <Button width="75px" color="dukeBlue" leftIcon={<ArrowBackIcon />}>
-            Back
-          </Button>
-        </Link>
-      </nav>
-
-      <Heading
-        as="h1"
-        textAlign="center"
-        textTransform="uppercase"
-        size="xl"
-        fontWeight="normal"
-      >
-        {category}
-      </Heading>
-
-      <chakra.section
-        display="flex"
-        flexDirection="column"
-        alignItems="right"
-        textAlign="right"
-      >
-        <Heading as="h2" size="md" fontWeight="normal">
-          ${value}
-        </Heading>
-        <Text size="md">
-          {`Aired`}{" "}
-          <time>{`${new Date(Date.parse(airdate))}`.slice(0, -42)}</time>
-        </Text>
-      </chakra.section>
-    </Grid>
-  );
-}
+import Header from "../components/Header";
 
 function Clue({ clue, prevClueId, nextClueId }) {
   const { answer, question, value, airdate, category } = clue;
 
   const router = useRouter();
 
-  const CurrentHeader = useBreakpointValue({
-    base: (
-      <SmallMediaHeader value={value} airdate={airdate} category={category} />
-    ),
-    md: (
-      <MediumMediaHeader value={value} airdate={airdate} category={category} />
-    ),
-  });
   const [answerVisible, setAnswerVisible] = useState(false);
 
   useEffect(() => {
@@ -129,7 +28,7 @@ function Clue({ clue, prevClueId, nextClueId }) {
       width="100%"
       padding="10px"
     >
-      {CurrentHeader}
+      {<Header value={value} airdate={airdate} category={category} />}
       <chakra.section
         display="grid"
         gridTemplateRows="1fr 1fr"
