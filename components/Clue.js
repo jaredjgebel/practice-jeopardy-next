@@ -42,8 +42,7 @@ function Clue({ clue, prevClueId, nextClueId }) {
         </Flex>
         <Flex alignItems="flex-end" justifyContent="center">
           <Button
-            width="100px"
-            color="dukeBlue"
+            marginBottom="10px"
             leftIcon={<RepeatIcon />}
             onClick={() => setAnswerVisible(!answerVisible)}
           >

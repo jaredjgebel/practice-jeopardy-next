@@ -12,20 +12,12 @@ function Navigation({ prevClueId, nextClueId }) {
     >
       <chakra.div padding="10px">
         <Link href={`/clues/${prevClueId}`}>
-          <Button width="100px" leftIcon={<ChevronLeftIcon />} color="dukeBlue">
-            Previous
-          </Button>
+          <Button leftIcon={<ChevronLeftIcon />}>Previous</Button>
         </Link>
       </chakra.div>
       <chakra.div padding="10px">
         <Link href={`/clues/${nextClueId}`}>
-          <Button
-            width="100px"
-            color="dukeBlue"
-            rightIcon={<ChevronRightIcon />}
-          >
-            Next
-          </Button>
+          <Button rightIcon={<ChevronRightIcon />}>Next</Button>
         </Link>
       </chakra.div>
     </chakra.nav>

@@ -1,6 +1,5 @@
+import Button from "../theme/button";
 import { extendTheme } from "@chakra-ui/react";
-
-import styles from "./styles";
 
 const overrides = {
   colors: {
@@ -9,6 +8,9 @@ const overrides = {
   fonts: {
     heading: "Franklin Gothic Medium",
     body: "Franklin Gothic Medium",
+  },
+  components: {
+    Button,
   },
 };
 

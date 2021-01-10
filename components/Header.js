@@ -17,9 +17,7 @@ function SmallMediaHeader({ category, airdate, value }) {
       <Flex justifyContent="space-between">
         <nav className="menu-nav" aria-labelledby="menu-navigation">
           <Link href="/">
-            <Button width="75px" color="dukeBlue" leftIcon={<ArrowBackIcon />}>
-              Back
-            </Button>
+            <Button leftIcon={<ArrowBackIcon />}>Back</Button>
           </Link>
         </nav>
 
@@ -62,9 +60,7 @@ function MediumMediaHeader({ category, airdate, value }) {
     <Grid gridTemplateColumns="1fr 1fr 1fr" gridGap="30px" height="50px">
       <nav className="menu-nav" aria-labelledby="menu-navigation">
         <Link href="/">
-          <Button width="75px" color="dukeBlue" leftIcon={<ArrowBackIcon />}>
-            Back
-          </Button>
+          <Button leftIcon={<ArrowBackIcon />}>Back</Button>
         </Link>
       </nav>
 
