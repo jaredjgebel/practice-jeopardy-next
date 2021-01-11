@@ -5,6 +5,7 @@ import { RepeatIcon } from "@chakra-ui/icons";
 
 import Navigation from "../components/Navigation";
 import Header from "../components/Header";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Clue({ clue, prevClueId, nextClueId }) {
   const { answer, question, value, airdate, category } = clue;
@@ -29,16 +30,52 @@ function Clue({ clue, prevClueId, nextClueId }) {
       padding="10px"
     >
       {<Header value={value} airdate={airdate} category={category} />}
-      <chakra.section
-        display="grid"
-        gridTemplateRows="1fr 1fr"
-        height="100%"
-        overflowY="auto"
-      >
+      <chakra.section display="grid" height="100%" overflowY="auto">
         <Flex alignItems="flex-end" justifyContent="center" padding="0px 50px">
-          <Text textAlign="center" textTransform="uppercase" fontSize="4xl">
-            {answerVisible ? answer : question}
-          </Text>
+          <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={category}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <AnimatePresence exitBeforeEnter>
+                {answerVisible ? (
+                  <motion.div
+                    key={answer}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <Text
+                      textAlign="center"
+                      textTransform="uppercase"
+                      fontSize="4xl"
+                    >
+                      {answer}
+                    </Text>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={question}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <Text
+                      textAlign="center"
+                      textTransform="uppercase"
+                      fontSize="4xl"
+                    >
+                      {question}
+                    </Text>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
         </Flex>
         <Flex alignItems="flex-end" justifyContent="center">
           <Button
