@@ -9,12 +9,15 @@ function FrontPage({ children }) {
       flexDir="column"
       alignItems="center"
       justifyContent="space-around"
+      textAlign="center"
     >
-      <Heading>Practice JEOPARDY!</Heading>
-      <p>
+      <Heading as="h1" size="4xl">
+        Practice JEOPARDY!
+      </Heading>
+      <Text as="p" paddingX={12}>
         Flash card-style questions and answers from{" "}
         <Text as="i">Jeopardy!</Text> questions throughout the ages
-      </p>
+      </Text>
       {children}
     </Flex>
   );

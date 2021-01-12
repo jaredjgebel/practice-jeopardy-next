@@ -30,8 +30,13 @@ function Clue({ clue, prevClueId, nextClueId }) {
       padding="10px"
     >
       {<Header value={value} airdate={airdate} category={category} />}
-      <chakra.section display="grid" height="100%" overflowY="auto">
-        <Flex alignItems="flex-end" justifyContent="center" padding="0px 50px">
+      <chakra.section
+        display="grid"
+        height="100%"
+        overflowY="auto"
+        gridTemplateRows="1fr auto"
+      >
+        <Flex alignItems="center" justifyContent="center" padding="0px 50px">
           <AnimatePresence exitBeforeEnter>
             <motion.div
               key={category}
