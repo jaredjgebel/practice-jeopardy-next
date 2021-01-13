@@ -8,7 +8,7 @@ import { parseClueIds } from "../data/getClues";
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const clueIds = parseClueIds();
   const randomClueId = clueIds[getRandomInt(clueIds.length)];
 

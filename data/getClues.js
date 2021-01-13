@@ -1,4 +1,5 @@
 import clues from "../data/clues.json";
+import clueIds from "../data/clueIds.json";
 
 export const parseClues = () => {
   return clues
@@ -23,5 +24,5 @@ export const parseClues = () => {
 };
 
 export const parseClueIds = () => {
-  return clues.map((clue) => clue.id).sort();
+  return clueIds;
 };
