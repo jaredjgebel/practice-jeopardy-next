@@ -32,55 +32,57 @@ function Clue({ clue, prevClueId, nextClueId }) {
       {<Header value={value} airdate={airdate} category={category} />}
       <chakra.section
         display="grid"
+        gridTemplateRows="1fr 1.2fr"
         height="100%"
         overflowY="auto"
-        gridTemplateRows="1fr auto"
       >
-        <Flex alignItems="center" justifyContent="center" padding="0px 50px">
-          <AnimatePresence exitBeforeEnter>
-            <motion.div
-              key={category}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <AnimatePresence exitBeforeEnter>
-                {answerVisible ? (
-                  <motion.div
-                    key={answer}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Text
-                      textAlign="center"
-                      textTransform="uppercase"
-                      fontSize="4xl"
+        <Flex alignItems="flex-end" justifyContent="center" padding="0px 50px">
+          <Flex alignItems="center">
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                key={category}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <AnimatePresence exitBeforeEnter>
+                  {answerVisible ? (
+                    <motion.div
+                      key={answer}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
                     >
-                      {answer}
-                    </Text>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key={question}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Text
-                      textAlign="center"
-                      textTransform="uppercase"
-                      fontSize="4xl"
+                      <Text
+                        textAlign="center"
+                        textTransform="uppercase"
+                        fontSize="4xl"
+                      >
+                        {answer}
+                      </Text>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key={question}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
                     >
-                      {question}
-                    </Text>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          </AnimatePresence>
+                      <Text
+                        textAlign="center"
+                        textTransform="uppercase"
+                        fontSize="4xl"
+                      >
+                        {question}
+                      </Text>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </AnimatePresence>
+          </Flex>
         </Flex>
         <Flex alignItems="flex-end" justifyContent="center">
           <Button

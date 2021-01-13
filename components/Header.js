@@ -13,7 +13,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 
 function SmallMediaHeader({ category, airdate, value }) {
   return (
-    <chakra.div>
+    <chakra.div height="150px">
       <Flex justifyContent="space-between">
         <nav className="menu-nav" aria-labelledby="menu-navigation">
           <Link href="/">
@@ -57,7 +57,7 @@ function SmallMediaHeader({ category, airdate, value }) {
 
 function MediumMediaHeader({ category, airdate, value }) {
   return (
-    <Grid gridTemplateColumns="1fr 1fr 1fr" gridGap="30px">
+    <Grid gridTemplateColumns="1fr 1fr 1fr" height="150px" gridGap="30px">
       <nav className="menu-nav" aria-labelledby="menu-navigation">
         <Link href="/">
           <Button leftIcon={<ArrowBackIcon />}>Back</Button>
