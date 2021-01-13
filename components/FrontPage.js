@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 
 function FrontPage({ children }) {
   return (
@@ -14,10 +14,10 @@ function FrontPage({ children }) {
       <Heading as="h1" size="4xl">
         Practice JEOPARDY!
       </Heading>
-      <Text as="p" paddingX={12}>
+      <Heading as="h2" size="md" fontWeight="normal" paddingX={12}>
         Flash card-style questions and answers from{" "}
         <Text as="i">Jeopardy!</Text> questions throughout the ages
-      </Text>
+      </Heading>
       {children}
     </Flex>
   );
