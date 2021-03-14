@@ -3,4 +3,11 @@ export default {
     color: "dukeBlue",
     width: "100px",
   },
+  variants: {
+    solid({ colorScheme }) {
+      return {
+        bg: "whitesmoke",
+      };
+    },
+  },
 };
